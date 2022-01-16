@@ -1,5 +1,4 @@
-function hello(someString) {
-    console.log(someString);
+const Test = () => {
+    return "Hello World"
 }
 
-hello("Hello World");
