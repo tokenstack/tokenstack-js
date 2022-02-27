@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/tokenstack/tokenstack-js-sdk/issues"
   },
-  "homepage": "https://github.com/tokenstack/tokenstack-js-sdk#readme"
+  "homepage": "https://github.com/tokenstack/tokenstack-js-sdk#readme",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "dotenv": "^16.0.0"
+  },
+  "type": "module"
 }
