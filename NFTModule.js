@@ -2,11 +2,11 @@
 const TOKENSTACK_API_URL = "https://us-central1-tokenstack-dev.cloudfunctions.net/api/"
 import axios from 'axios';
 
-export default class NFTModule{
+export default class NFTModule {
 
-    constructor(accessToken) {
-        if (!accessToken){
-            throw new Error("API Key is Invalid")
+    constructor(accessToken, projectId) {
+        if (!accessToken || !projectId) {
+            throw new Error("API Key or Project Id is Invalid")
         }
         this.accessToken = accessToken
     }
@@ -18,6 +18,7 @@ export default class NFTModule{
 
         const nftData = {
             accessToken: this.accessToken,
+            projectId: this.projectId,
             description: description,
             attributes: attributes,
             externalUrl: externalUrl,
@@ -26,7 +27,7 @@ export default class NFTModule{
             privateKey: privateKey,
             publicKey: publicKey
         }
-        
+
 
         const nft = await axios({
             method: 'post',

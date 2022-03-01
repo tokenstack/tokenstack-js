@@ -23,12 +23,13 @@ async function getAccessToken(sampleApiKey) {
 }
 
 export class Tokenstack {
-    constructor(apiKey) {
+    constructor(apiKey, projectId) {
         return (async () => {
 
             this.apiKey = apiKey;
+            this.projectId = projectId;
             this.accessToken = await getAccessToken(apiKey);
-            this.nft = new NFTModule(this.accessToken);
+            this.nft = new NFTModule(this.accessToken, this.projectId);
 
             return this;
         })();
