@@ -8,7 +8,8 @@ export default class NFTModule {
         if (!accessToken || !projectId) {
             throw new Error("API Key or Project Id is Invalid")
         }
-        this.accessToken = accessToken
+        this.accessToken = accessToken;
+        this.projectId = projectId;
     }
 
     async mintNFT(name = "", description = "", attributes = "", externalUrl = "", fileData, privateKey, publicKey) {
@@ -27,7 +28,7 @@ export default class NFTModule {
             privateKey: privateKey,
             publicKey: publicKey
         }
-
+        console.log(nftData);
 
         const nft = await axios({
             method: 'post',

@@ -29,7 +29,7 @@ export class Tokenstack {
             this.apiKey = apiKey;
             this.projectId = projectId;
             this.accessToken = await getAccessToken(apiKey);
-            this.nft = new NFTModule(this.accessToken, this.projectId);
+            this.nft = new NFTModule(this.accessToken, projectId);
 
             return this;
         })();
