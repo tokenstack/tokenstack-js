@@ -12,7 +12,7 @@ export default class NFTModule {
         this.projectId = projectId;
     }
 
-    async mintNFT(name = "", description = "", attributes = "", externalUrl = "", fileData, privateKey, publicKey) {
+    async mintNFT(fileData, privateKey, publicKey, name = "", description = "", attributes = "", externalUrl = "") {
         if (!fileData || !privateKey || !publicKey) {
             throw new Error("Invalid arguments passed into function")
         }
@@ -28,7 +28,6 @@ export default class NFTModule {
             privateKey: privateKey,
             publicKey: publicKey
         }
-        console.log(nftData);
 
         const nft = await axios({
             method: 'post',

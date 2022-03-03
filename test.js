@@ -1,19 +1,9 @@
 import { Tokenstack } from "./index.js";
 import 'dotenv/config';
+import * as fs from 'fs';
 
-const name = "tokenstack SDK NFT"
-const description = "SDK Testing"
-const attributes = [{
-    "trait-type": "Animal",
-    "value": "Cat"
-}]
-const externalUrl = "https://en.wikipedia.org/wiki/Space_Chickens_in_Space"
-// const fileData = fs.readFileSync('./image-2.jpg', { encoding: 'base64' });
-const fileData = "aGVsbG8gd29ybGQ="
-const privateKey = process.env.TEST_PRIVATE_KEY;
-const publicKey = process.env.TEST_PUBLIC_KEY;
-const tokenstack = await new Tokenstack(process.env.TEST_API_KEY, process.env.TEST_PROJECT_ID);
-console.log(tokenstack.nft);
-const nftTesting = await tokenstack.nft.mintNFT(name, description, attributes, externalUrl, fileData, privateKey, publicKey);
+const fileData = fs.readFileSync('./image.jpg', 'base64');; // Base64 Encoded Image
+const tokenstack = await new Tokenstack(process.env.TOKENSTACK_API_KEY, process.env.TOKENSTACK_PROJECT_ID);
+const nftTesting = await tokenstack.nft.mintNFT(fileData, process.env.TEST_PRIVATE_KEY, process.env.TEST_PUBLIC_KEY);
 
-console.log(nftTesting)
+console.log(nftTesting);
