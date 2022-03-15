@@ -12,7 +12,7 @@ export default class NFTModule {
         this.projectId = projectId;
     }
 
-    async mintNFT(fileData, privateKey, publicKey, name = "", description = "", attributes = "", externalUrl = "") {
+    async mintNFT(fileData, privateKey, publicKey, name = "", description = "", attributes = [], externalUrl = "") {
         if (!fileData || !privateKey || !publicKey) {
             throw new Error("Invalid arguments passed into function")
         }
