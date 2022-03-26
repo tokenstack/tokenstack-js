@@ -1,5 +1,5 @@
 
-const TOKENSTACK_API_URL = "http://localhost:5000/"
+const TOKENSTACK_API_URL = "https://us-central1-tokenstack-dev.cloudfunctions.net/api/"
 import axios from 'axios';
 
 export default class NFTModule {
