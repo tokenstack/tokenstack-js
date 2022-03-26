@@ -1,6 +1,6 @@
 {
   "name": "tokenstack",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Official Tokenstack JS Software Development Kit",
   "main": "index.js",
   "scripts": {

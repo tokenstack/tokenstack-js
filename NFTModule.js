@@ -1,5 +1,5 @@
 
-const TOKENSTACK_API_URL = "https://us-central1-tokenstack-dev.cloudfunctions.net/api/"
+const TOKENSTACK_API_URL = "http://localhost:5000/"
 import axios from 'axios';
 
 export default class NFTModule {
@@ -12,7 +12,7 @@ export default class NFTModule {
         this.projectId = projectId;
     }
 
-    async mintNFT(fileData, privateKey, publicKey, name = "", description = "", attributes = [], externalUrl = "") {
+    async mintNFT(fileData, privateKey, publicKey, name = "", description = "", attributes = [], externalUrl = "", network = "rinkeby") {
         if (!fileData || !privateKey || !publicKey) {
             throw new Error("Invalid arguments passed into function")
         }
@@ -26,7 +26,8 @@ export default class NFTModule {
             name: name,
             fileData: fileData,
             privateKey: privateKey,
-            publicKey: publicKey
+            publicKey: publicKey,
+            network: network
         }
 
         const nft = await axios({
